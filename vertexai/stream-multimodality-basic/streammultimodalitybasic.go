@@ -42,7 +42,7 @@ func generateContent(w io.Writer, projectID, modelName string) error {
 			FileURI:  "gs://cloud-samples-data/generative-ai/video/animals.mp4",
 		},
 		genai.FileData{
-			MIMEType: "video/jpeg",
+			MIMEType: "image/jpeg",
 			FileURI:  "gs://cloud-samples-data/generative-ai/image/character.jpg",
 		},
 		genai.Text("Are these video and image correlated?"),
@@ -52,11 +52,11 @@ func generateContent(w io.Writer, projectID, modelName string) error {
 		if err == iterator.Done {
 			return nil
 		}
+		if err != nil {
+			return fmt.Errorf("This is the real error %w", err)
+		}
 		if len(resp.Candidates) == 0 || len(resp.Candidates[0].Content.Parts) == 0 {
 			return errors.New("empty response from model")
-		}
-		if err != nil {
-			return err
 		}
 
 		fmt.Fprint(w, "generated response: ")
