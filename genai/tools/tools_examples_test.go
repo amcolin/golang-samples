@@ -45,7 +45,7 @@ func generateWithGoogleVAISMock(w io.Writer, dataStore string) error {
 	ctx := context.Background()
 
 	resp, err := models.GenerateContentMock(ctx,
-		"google/gemini-2.0-flash",
+		"google/gemini-2.5-flash",
 		[]*genai.Content{
 			{
 				Role: "user",

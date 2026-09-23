@@ -88,7 +88,7 @@ func batchPredictGCS(w io.Writer, projectID, location string, inputURIs []string
 	fmt.Fprintf(w, "job id: %q\n", fullJobId)
 	fmt.Fprintf(w, "job state: %s\n", job.GetState())
 	// Example response:
-	// submitted batch predict job for model "publishers/google/models/gemini-2.0-flash-001"
+	// submitted batch predict job for model "publishers/google/models/gemini-2.5-flash"
 	// job id: "projects/.../locations/.../batchPredictionJobs/1234567890000000000"
 	// job state: JOB_STATE_PENDING
 
